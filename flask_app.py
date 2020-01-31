@@ -1,6 +1,5 @@
 from flask import Flask, render_template
 import launch
-import tw_nl
 
 app = Flask(__name__)
 app.config["DEBUG"] = True
@@ -13,6 +12,5 @@ def index():
                             name = l.name,
                             stream_url = l.stream,
                             info_url = l.info,
-                            lsp = l.lsp,
-                            tweet = tw_nl.latest_tweet_text())
+                            lsp = l.lsp)
 
