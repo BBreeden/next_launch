@@ -1,0 +1,129 @@
+body {
+    /* padding: 45px; */
+    font-family:'Times New Roman', Times, sans-serif;
+    margin: 0;
+}
+
+/* redundant combine with container main */
+footer, #container_main {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: #1d1e22;
+}
+
+h3 {
+    margin: 0;
+}
+
+p {
+    color: white;
+}
+
+a {
+    color: #feda6a;
+}
+
+a:hover {
+    color: lightgray;
+}
+
+#container_main {
+    height: 100%;
+}
+
+#agency-nation {
+    background-color: white;
+    width: 100%;
+}
+
+#logo {
+    margin: 20px;
+    text-align: center;
+    padding-bottom: 80px;
+}
+
+#logo-img {
+    max-width: 300px;
+    padding-top: 35%;
+}
+
+#cd_numbers {
+    text-align: center;
+    font-size: 96px;
+    margin: 0;
+    padding-top:35px;
+    padding-bottom: 15px;
+}
+
+#icons {
+    margin: 10px;
+    text-align: center;
+}
+
+#twitter {
+    border-style: solid;
+    border-width: 6px;
+    border-color: black;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    text-align: left;
+    padding: 8px;
+    width: 80%;
+}
+
+#tweet_text {
+    text-align: justify;
+    text-justify: inter-character;
+}
+
+#twitter_header {
+    margin: 0;
+}
+
+#quote {
+    color: #1d1e22;
+    font-size: 24px;
+    font-style: italic;
+    text-align: center;
+}
+
+#count_down {
+    padding-bottom: 25px;
+}
+
+
+.agency-nation-text {
+    color: #1d1e22;
+    font-size: 40px;
+    text-align: center;
+}
+
+.twt_icon {
+    max-width: 10%;
+}
+
+.info_text{
+    margin: 0;
+    padding-bottom: 25px;
+    font-size: 60px;
+}
+
+.icon {
+    max-width: 80px;
+    height: auto;
+    margin: 3px;
+}
+
+@media only screen and (max-width:500px) {
+    #cd_numbers {
+        font-size: 52px;
+    }
+
+    .agency-nation-text {
+        font-size: 32px;
+    }
+}

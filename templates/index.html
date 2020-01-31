@@ -1,0 +1,80 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Next Launch</title>
+
+  <link href="/static/css/nl.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/static/img/icon.png">
+</head>
+
+<body>
+    <div id="container_main">
+            <div id="logo">
+                <img id="logo-img" src="static/img/logo.png">
+            </div>
+
+            <div id="count_down">
+                <p id="cd_numbers">00:00:00</p>
+            </div>
+
+        <div id="agency-nation">
+            <div class="launch_info">
+                <p class="agency-nation-text">{{ lsp }}</br>{{ name }}</p>
+                <p id="quote">Let's go to space!</p>
+            </div>
+        </div>
+
+    </div>
+
+
+<!--Countdown Script-->
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date({{ net }});
+    offset = countDownDate.getTimezoneOffset();
+    countDownDate.setHours(countDownDate.getHours() - (offset/60));
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+    // Get today's date and time
+    var now = new Date().getTime();
+
+    // Find the distance between now and the count down date
+    var distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes and seconds
+    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    days = (('00' + days).substr(-2));
+
+    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    hours = (('00' + hours).substr(-2));
+
+    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    minutes = (('00' + minutes).substr(-2));
+
+    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    seconds = (('00' + seconds).substr(-2));
+
+    // Display the result in the element with id="demo"
+    document.getElementById("cd_numbers").innerHTML = days + ":" + hours + ":"
+      + minutes + ":" + seconds;
+
+    // If the count down is finished, write some text
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("cd_numbers").innerHTML = "LAUNCH!";
+     }
+    }, 1000);
+</script>
+
+</body>
+
+<footer><p id="footer_text">A project by <a href="https://twitter.com/BCBreeden" target="_blank">Brian Breeden</a>.</p></footer>
+
+
+</html>
