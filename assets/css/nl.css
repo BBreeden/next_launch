@@ -1,129 +1,130 @@
-body {
-    /* padding: 45px; */
-    font-family:'Times New Roman', Times, sans-serif;
-    margin: 0;
-}
-
-/* redundant combine with container main */
-footer, #container_main {
-    max-width: 800px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    background-color: #1d1e22;
-}
-
-h3 {
-    margin: 0;
-}
-
-p {
-    color: white;
-}
-
-a {
-    color: #feda6a;
-}
-
-a:hover {
-    color: lightgray;
-}
-
-#container_main {
+html, body {
     height: 100%;
 }
 
-#agency-nation {
-    background-color: white;
-    width: 100%;
+body {
+    background-color: #11131a;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+a {
+    color: #b8c9ff;
+}
+
+a:hover {
+    color: #dbdbdb;
+}
+
+#wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#left-col,#right-col{
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+#left-col{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#right-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#count-down {
+    color: white;
+    font-size: 42px;
+}
+
+#mission-title {
+    color: white;
+    font-size: 42px;
+    /*text-align: center;*/
+}
+
+#mission-info,#webcast-info  {
+    color: white;
+}
+
+#mission-info {
+    font-size: 28px;
+}
+
+#webcast-info {
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 0;
+}
+
+#misc-info {
+    color: white;
+    font-size: 18px;
 }
 
 #logo {
-    margin: 20px;
-    text-align: center;
-    padding-bottom: 80px;
+    padding-top: 30px;
 }
 
-#logo-img {
-    max-width: 300px;
-    padding-top: 35%;
-}
+@media only screen and (max-width:950px) {
+    #wrapper {
+        flex-direction: column;
+    }
 
-#cd_numbers {
-    text-align: center;
-    font-size: 96px;
-    margin: 0;
-    padding-top:35px;
-    padding-bottom: 15px;
-}
-
-#icons {
-    margin: 10px;
-    text-align: center;
-}
-
-#twitter {
-    border-style: solid;
-    border-width: 6px;
-    border-color: black;
-    margin-top: 50px;
-    margin-bottom: 20px;
-    text-align: left;
-    padding: 8px;
-    width: 80%;
-}
-
-#tweet_text {
-    text-align: justify;
-    text-justify: inter-character;
-}
-
-#twitter_header {
-    margin: 0;
-}
-
-#quote {
-    color: #1d1e22;
-    font-size: 24px;
-    font-style: italic;
-    text-align: center;
-}
-
-#count_down {
-    padding-bottom: 25px;
-}
-
-
-.agency-nation-text {
-    color: #1d1e22;
-    font-size: 40px;
-    text-align: center;
-}
-
-.twt_icon {
-    max-width: 10%;
-}
-
-.info_text{
-    margin: 0;
-    padding-bottom: 25px;
-    font-size: 60px;
-}
-
-.icon {
-    max-width: 80px;
+    html, body {
     height: auto;
-    margin: 3px;
+    }
+
+    #right-col {
+        align-items: center;
+    }
+
+    #mission-info, #misc-info, #mission-title {
+        text-align: center;
+    }
+
+    #count-down {
+        font-size: 54px;
+    }
 }
 
 @media only screen and (max-width:500px) {
-    #cd_numbers {
-        font-size: 52px;
+    h1 {
+        margin-top: 0;
     }
 
-    .agency-nation-text {
-        font-size: 32px;
+    #logo {
+        width: 300px;
+        height: auto;
+    }
+
+    #mission-title {
+        font-size: 7vw;
+        text-align: center;
+    }
+
+    #mission-info {
+        font-size: 5vw;
+    }
+
+    #misc-info {
+        font-size: 3.5vw;
+    }
+
+    #left-col,#right-col {
+        padding-right: 20px;
+        padding-left: 20px;
     }
 }

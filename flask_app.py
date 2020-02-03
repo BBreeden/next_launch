@@ -12,5 +12,6 @@ def index():
                             name = l.name,
                             stream_url = l.stream,
                             info_url = l.info,
-                            lsp = l.lsp)
+                            lsp = l.lsp,
+                            launch_time_date = l.launch_time_date)
 

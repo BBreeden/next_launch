@@ -3,33 +3,47 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Next Launch</title>
 
-  <link href="/static/css/nl.css" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/nl.css">
   <link rel="icon" type="image/png" href="/static/img/icon.png">
 </head>
 
 <body>
-    <div id="container_main">
-            <div id="logo">
-                <img id="logo-img" src="static/img/logo.png">
-            </div>
 
-            <div id="count_down">
-                <p id="cd_numbers">00:00:00</p>
-            </div>
+    <div id="wrapper">
 
-        <div id="agency-nation">
-            <div class="launch_info">
-                <p class="agency-nation-text">{{ lsp }}</br>{{ name }}</p>
-                <p id="quote">Let's go to space!</p>
-            </div>
+        <div id="left-col">
+            <img id="logo" src="/static/img/logo.png">
+            <p id="count-down">00:00:00:00</p>
         </div>
 
-    </div>
+        <div id="right-col">
+            <h1 id="mission-title">{{ name }}</h1>
+            <p id="mission-info">
+                {{ lsp }} </br>
+                <i>{{ launch_time_date }}</i>
+            </p>
 
+            <!--Icon conditional. If there is a video stream link value, the active icon will be displayed along with a link attached to the icon. If not, the icon is inactive.-->
+            {% if ( stream_url != None) %}
+                <a href={{ stream_url }} target="_blank"><img class="icon" src="/static/img/vid_active.png" title="There is a stream available." alt="Video Camera Icon"></a>
+            {% else %}
+                <img class="icon" src="/static/img/vid_inactive.png" title="There is not a stream available." alt="Video Camera Icon">
+                <!--<p id="webcast-info">Webcast Unavailable</p>-->
+            {% endif %}
+
+
+            <p id="misc-info">
+                <a href="https://twitter.com/NextLaunchInfo" target="_blank">Twitter Updates</a></br>
+                A project by <a href="https://twitter.com/BCBreeden" target="_blank">Brian Breeden</a>.
+            </p>
+        </div>
+
+
+    </div>
 
 <!--Countdown Script-->
 <script>
@@ -61,20 +75,16 @@
     seconds = (('00' + seconds).substr(-2));
 
     // Display the result in the element with id="demo"
-    document.getElementById("cd_numbers").innerHTML = days + ":" + hours + ":"
+    document.getElementById("count-down").innerHTML = days + ":" + hours + ":"
       + minutes + ":" + seconds;
 
     // If the count down is finished, write some text
     if (distance < 0) {
         clearInterval(x);
-        document.getElementById("cd_numbers").innerHTML = "LAUNCH!";
+        document.getElementById("count-down").innerHTML = "LAUNCH!";
      }
     }, 1000);
 </script>
 
 </body>
-
-<footer><p id="footer_text">A project by <a href="https://twitter.com/BCBreeden" target="_blank">Brian Breeden</a>.</p></footer>
-
-
 </html>

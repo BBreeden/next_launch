@@ -87,11 +87,12 @@ class Launch:
         self.stream = get_stream_url(data)
         self.net = get_timedate_stamp(data['launches'][0]['isonet']) #UTC
         self.img_url = get_img_url(data['launches'][0]['rocket']['imageURL'])
+        self.launch_time_date = data['launches'][0]['net']
 
 
 # sandbox
 l = Launch()
-print(l.net)
+print(l.stream)
 
 
 
