@@ -73,7 +73,7 @@ return:
 '''
 def get_img_url(api_string):
     if ('placeholder' in api_string):
-        return 'https://i.imgur.com/tMGPxej.png'
+        return 'https://i.imgur.com/DhXu6kg.png'
     api_string = api_string.replace('\\', '')
     return api_string
 
