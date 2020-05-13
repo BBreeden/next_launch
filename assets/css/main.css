@@ -1,0 +1,119 @@
+html, body {
+  height:100%;
+}
+
+body {
+  margin: 0;
+}
+
+html { 
+    background: url(f9bg.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  header {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  h1, .countdown-item {
+    font-family: 'Playfair Display', serif;
+    font-weight: normal;
+    color: white;
+  }
+
+  p, h1 {
+    margin: 0;
+    color: white;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  p {
+    font-family: 'Fauna One', serif;
+  }
+
+  a {
+    color: #d8b17a;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: grey;
+  }
+
+  footer {
+    display: flex;
+    justify-content: center;
+  }
+
+  #logo-small {
+    padding-right: 20px;
+  }
+
+  #container-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    height: 65%;
+  }
+
+  #countdown-items {
+    width: auto;
+  }
+
+  #countdown-container, #launch-info-container {
+    width: auto;
+  }
+
+  #countdown-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    padding-bottom: 20px;
+  }
+
+  #launch-info-container {
+    padding-top: 20px;
+    text-align: left;
+  }
+
+  #footer-container {
+    text-align: center;
+  }
+
+  #mission-status-p {
+    display: none;
+  }
+
+  #no-stream-p {
+    color: grey;
+  }
+
+  .countdown-item {
+    font-size: 28px;
+  }
+
+  .footer-item {
+    padding: 7px;
+  }
+
+  .launch-info-item, #stream-link {
+    font-size: 16px;
+  }
+
+  .cd-num {
+    display: inline-block;
+    width: 35px;
+  }
