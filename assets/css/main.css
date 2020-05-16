@@ -120,9 +120,9 @@ html {
 
   /* Mobile  */
   @media screen and (max-width: 850px) {
-    #tw-logo {
+    /* #tw-logo {
       width: 32px;
-    }
+    } */
 
     .footer-text {
       font-size: 12px;
