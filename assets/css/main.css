@@ -7,7 +7,7 @@ body {
 }
 
 html { 
-    background: url(/static/img/f9bg.jpg) no-repeat center center fixed; 
+    background: url(/static/img/f9bg.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -116,4 +116,19 @@ html {
   .cd-num {
     display: inline-block;
     width: 35px;
+  }
+
+  /* Mobile  */
+  @media screen and (max-width: 850px) {
+    #tw-logo {
+      width: 32px;
+    }
+
+    .footer-text {
+      font-size: 12px;
+    }
+
+    #container-main {
+      height: 70%
+    }
   }
