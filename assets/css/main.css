@@ -134,8 +134,10 @@ html {
   }
 
   /* Laptops  */
-  @media screen and (max-height: 850px) {
+  @media screen and (max-height: 750px) {
     #container-main {
       justify-content: flex-start;
+      padding-top: 50px;
+      height: 55%;
     }
   }
