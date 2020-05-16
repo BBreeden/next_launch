@@ -40,8 +40,6 @@ args:
 return:
     None - If the length of the array is zero, it can be assumed there is no stream for this launch
     data_array[0] - The first entry in the array is the primary data source for this metric
-
-TODO: Refactor with other array functions
 '''
 def get_stream_url(data):
     data_array = data['launches'][0]['vidURLs']
@@ -69,7 +67,7 @@ args:
     api_string - the url string from the api
 
 return:
-    custom placeholder or the appropriate img url
+    string - custom placeholder or the appropriate img url
 '''
 def get_img_url(api_string):
     if ('placeholder' in api_string):
@@ -92,7 +90,7 @@ class Launch:
 
 # sandbox
 l = Launch()
-print(l.stream)
+print(type(l.net))
 
 
 

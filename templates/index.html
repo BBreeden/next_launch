@@ -81,7 +81,10 @@
     <script>
       // Set the date we're counting down to
       var countDownDate = new Date({{ net }});
+
+      // date for testing purposes only.
       // var countDownDate = new Date(2020, 4, 16, 12, 24, 0);
+
       offset = countDownDate.getTimezoneOffset();
       countDownDate.setHours(countDownDate.getHours() - (offset/60));
     
@@ -107,16 +110,13 @@
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
       seconds = (('00' + seconds).substr(-2));
     
-      // Display the current countdown.
-      // document.getElementById("count-down").innerHTML = days + ":" + hours + ":"
-      //   + minutes + ":" + seconds;
-    
+      // Display the current countdown by modifying the appropriate elements.    
       document.getElementById("days-num").innerHTML = days;
       document.getElementById("hours-num").innerHTML = hours;
       document.getElementById("mins-num").innerHTML = minutes;
       document.getElementById("seconds-num").innerHTML = seconds;
     
-      //Modify the unit of measurement based on the number of each unit, respectively. 
+      //  Modify the unit of measurement based on the number of each unit, respectively. 
       if (days==1){
         document.getElementById("days-lab").innerHTML = "DAY"
       } else {
@@ -141,7 +141,7 @@
         document.getElementById("seconds-lab").innerHTML = "SECONDS"
       }
     
-      // If the count down is finished, update the mission status and perform the fade animations.
+      // If the count down is finished, update the mission status and perform the fade animations on the countdown elements.
       if (distance < 0) {
           clearInterval(x);
           $('.cd-num, .cd-lab').fadeOut(1300);

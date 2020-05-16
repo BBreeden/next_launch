@@ -4,6 +4,9 @@ import launch
 app = Flask(__name__)
 app.config["DEBUG"] = True
 
+'''
+Renders the index template and passes in the launch information.
+'''
 @app.route('/')
 def index():
     l = launch.Launch()

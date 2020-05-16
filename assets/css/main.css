@@ -1,9 +1,34 @@
-html, body {
-  height:100%;
+/* 
+Table of Contents 
+
+Elements
+IDs
+Classes
+Media Queries
+
+In alphabetical order.
+*/
+
+a {
+  color: #d8b17a;
+  text-decoration: none;
+}
+
+a:hover {
+  color: grey;
 }
 
 body {
   margin: 0;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+html, body {
+  height:100%;
 }
 
 html { 
@@ -20,6 +45,10 @@ html {
     flex-direction: row;
     align-items: flex-end;
   }
+  
+  h1 {
+    font-size: 24px;
+  }
 
   h1, .countdown-item {
     font-family: 'Playfair Display', serif;
@@ -32,30 +61,8 @@ html {
     color: white;
   }
 
-  h1 {
-    font-size: 24px;
-  }
-
   p {
     font-family: 'Fauna One', serif;
-  }
-
-  a {
-    color: #d8b17a;
-    text-decoration: none;
-  }
-
-  a:hover {
-    color: grey;
-  }
-
-  footer {
-    display: flex;
-    justify-content: center;
-  }
-
-  #logo-small {
-    padding-right: 20px;
   }
 
   #container-main {
@@ -66,10 +73,6 @@ html {
     align-items: center;
     width: 100%;
     height: 65%;
-  }
-
-  #countdown-items {
-    width: auto;
   }
 
   #countdown-container, #launch-info-container {
@@ -84,13 +87,21 @@ html {
     padding-bottom: 20px;
   }
 
+  #countdown-items {
+    width: auto;
+  }
+
+  #footer-container {
+    text-align: center;
+  }
+
   #launch-info-container {
     padding-top: 20px;
     text-align: left;
   }
 
-  #footer-container {
-    text-align: center;
+  #logo-small {
+    padding-right: 20px;
   }
 
   #mission-status-p {
@@ -99,6 +110,11 @@ html {
 
   #no-stream-p {
     color: grey;
+  }
+
+  .cd-num {
+    display: inline-block;
+    width: 35px;
   }
 
   .countdown-item {
@@ -111,11 +127,6 @@ html {
 
   .launch-info-item, #stream-link {
     font-size: 16px;
-  }
-
-  .cd-num {
-    display: inline-block;
-    width: 35px;
   }
 
   /* Mobile  */
