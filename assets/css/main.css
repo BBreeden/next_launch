@@ -128,7 +128,14 @@ html {
       font-size: 12px;
     }
 
-    #container-main {
+    /* #container-main {
       height: 70%
+    } */
+  }
+
+  /* Laptops  */
+  @media screen and (max-height: 850px) {
+    #container-main {
+      justify-content: flex-start;
     }
   }
