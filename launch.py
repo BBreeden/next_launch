@@ -88,10 +88,5 @@ class Launch:
         self.launch_time_date = data['launches'][0]['net']
 
 
-# sandbox
-l = Launch()
-print(type(l.net))
-
-
 
 

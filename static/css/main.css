@@ -25,6 +25,7 @@ body {
 footer {
   display: flex;
   justify-content: center;
+  padding-bottom: 15px;
 }
 
 html, body {
@@ -40,14 +41,15 @@ html {
   }
 
   header {
-    padding: 20px;
     display: flex;
     flex-direction: row;
     align-items: flex-end;
+    align-self: flex-start;
+    padding-top: 40px;
   }
   
   h1 {
-    font-size: 24px;
+    font-size: 32px;
   }
 
   h1, .countdown-item {
@@ -65,14 +67,20 @@ html {
     font-family: 'Fauna One', serif;
   }
 
+  #container {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+  }
+
   #container-main {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     text-align: center;
     align-items: center;
-    width: 100%;
-    height: 65%;
+    height: 100%;
+    width: 800px;
   }
 
   #countdown-container, #launch-info-container {
@@ -89,6 +97,8 @@ html {
 
   #countdown-items {
     width: auto;
+    display: flex;
+    flex-direction: column;
   }
 
   #footer-container {
@@ -140,8 +150,6 @@ html {
   /* Laptops  */
   @media screen and (max-height: 750px) {
     #container-main {
-      justify-content: flex-start;
-      padding-top: 50px;
-      height: 55%;
+      /* justify-content: flex-start; */
     }
   }
