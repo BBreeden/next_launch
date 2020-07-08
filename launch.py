@@ -75,18 +75,25 @@ def get_img_url(api_string):
     api_string = api_string.replace('\\', '')
     return api_string
 
+
+
+
 class Launch:
     def __init__(self):
         data = launch_init()
         self.name = data['launches'][0]['name']
         self.lsp = data['launches'][0]['lsp']['name']
+        self.lsp_abbrev = data['launches'][0]['lsp']['abbrev']
         self.info = get_launch_info_url(data)
-        self.rocket_name = data['launches'][0]['rocket']
+        self.rocket_name = data['launches'][0]['rocket']['name']
+        self.rocket_info_url = data['launches'][0]['rocket']['wikiURL']
         self.stream = get_stream_url(data)
         self.net = get_timedate_stamp(data['launches'][0]['isonet']) #UTC
         self.img_url = get_img_url(data['launches'][0]['rocket']['imageURL'])
         self.launch_time_date = data['launches'][0]['net']
+        self.lsp_info_url = data['launches'][0]['lsp']['wikiURL']
 
 
-
+l = Launch()
+print(l.rocket_info_url)
 
