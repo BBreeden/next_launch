@@ -43,17 +43,15 @@ html {
   header {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
-    align-self: flex-start;
+    align-self: center;
     padding-top: 40px;
-    padding-left: 20px
   }
   
   h1 {
-    font-size: 32px;
+    font-size: 46px;
   }
 
-  h1, .countdown-item {
+  h1 {
     font-family: 'Playfair Display', serif;
     font-weight: normal;
     color: white;
@@ -84,19 +82,24 @@ html {
     width: 800px;
   }
 
+  #countdown {
+    height: 100px;
+  }
+
   #countdown-container, #launch-info-container {
     width: auto;
   }
 
   #countdown-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: flex-start;
     text-align: left;
     padding-bottom: 20px;
+    align-items: center;
   }
 
-  #countdown-items {
+  #launch-items {
     width: auto;
     display: flex;
     flex-direction: column;
@@ -107,12 +110,12 @@ html {
   }
 
   #launch-info-container {
-    padding-top: 20px;
+    padding: 10px;
     text-align: left;
   }
 
-  #logo-small {
-    padding-right: 20px;
+  #logo-container {
+    padding: 10px;
   }
 
   #mission-status-p {
@@ -124,12 +127,13 @@ html {
   }
 
   .cd-num {
+    padding: 3px;
+    width: 45px;
     display: inline-block;
-    width: 35px;
   }
 
   .countdown-item {
-    font-size: 28px;
+    font-size: 36px;
   }
 
   .footer-item {
@@ -137,7 +141,7 @@ html {
   }
 
   .launch-info-item, #stream-link {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   /* Mobile  */

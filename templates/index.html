@@ -23,45 +23,32 @@
     <div id="container">
       <div id="container-main">
         <header>
-          <!-- <img id="logo-small" src="/static/img/logoSm.png"> <h1 id="header-text">NEXT LAUNCH</h1> -->
-          <img id="logo-small" src="{{ url_for('static', filename='img/logoSm.png') }}"> <h1 id="header-text">NEXT LAUNCH</h1>
+          <h1 id="header-text">NEXT LAUNCH</h1>
         </header>
     
-        <div id="countdown-items">
-
+        <div id="launch-items">
           <div id="countdown-container">
-            <p class="countdown-item">
-              <span class="cd-num" id="days-num">00</span> <span class="cd-lab" id="days-lab">DAYS</span>
-            </p>
-            <p class="countdown-item">
-              <span class="cd-num" id="hours-num">00</span> <span class="cd-lab" id="hours-lab">HOURS</span>
-            </p>
-            <p class="countdown-item">
-              <span class="cd-num" id="mins-num">00</span> <span class="cd-lab" id="mins-lab">MINUTES</span>
-            </p>
-            <p class="countdown-item">
-              <span class="cd-num" id="seconds-num">00</span> <span class="cd-lab" id="seconds-lab">SECONDS</span>
+            <div id="logo-container">
+              <img src="{{ url_for('static', filename='img/logo-main.png') }}">
+            </div>
+            <div id="launch-info-container">
+              <p class="launch-info-item">{{ lsp }}</p>
+              <p class="launch-info-item">{{ name }}</p>
+              <p class="launch-info-item">{{ launch_time_date }}</p>
+              <!-- If there is a link to a video stream, display it. Otherwise, show a message indicating that there is not a stream available. -->
+              {% if ( stream_url != None) %}
+                <a id="stream-link" href={{ stream_url }} target="_blank">Stream Available</a>
+              {% else %}
+                <p id="no-stream-p">Stream Unavailable</p>
+              {% endif %} 
+            </div>
+          </div>
+
+          <div id="countdown">
+            <p class="countdown-item" id="cd-elements">
+              T - <span class="cd-num" id="days-num">00</span>:<span class="cd-num" id="hours-num">00</span>:<span class="cd-num" id="mins-num">00</span>:<span class="cd-num" id="seconds-num">00</span>
             </p>
             <p class="countdown-item" id="mission-status-p">Mission in </br>Progress</p>
-          </div>
-    
-          <div id="launch-info-container">
-            <p class="launch-info-item">
-              {{ lsp }}
-            </p>
-            <p class="launch-info-item">
-              {{ name }}
-            </p>
-            <p class="launch-info-item">
-              {{ launch_time_date }}
-            </p>
-    
-            <!-- If there is a link to a video stream, display it. Otherwise, show a message indicating that there is not a stream available. -->
-            {% if ( stream_url != None) %}
-              <a id="stream-link" href={{ stream_url }} target="_blank">Stream Available</a>
-            {% else %}
-              <p id="no-stream-p">Stream Unavailable</p>
-            {% endif %} 
           </div>
 
         </div>
@@ -104,16 +91,32 @@
     
       // Time calculations for days, hours, minutes and seconds
       var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      days = (('00' + days).substr(-2));
+      if (days<=0){
+        days = '00'
+      } else {
+      days = (('00' + days).substr(-2))
+      }
     
       var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      hours = (('00' + hours).substr(-2));
+      if (hours<=0){
+        hours = '00'
+      } else {
+      hours = (('00' + hours).substr(-2))
+      }
     
       var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      minutes = (('00' + minutes).substr(-2));
+      if (minutes<=0){
+        minutes = '00'
+      } else {
+      minutes = (('00' + minutes).substr(-2))
+      }
     
       var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      if (seconds<=0){
+        seconds = '00'
+      } else {
       seconds = (('00' + seconds).substr(-2));
+      }
     
       // Display the current countdown by modifying the appropriate elements.    
       document.getElementById("days-num").innerHTML = days;
@@ -122,34 +125,34 @@
       document.getElementById("seconds-num").innerHTML = seconds;
     
       //  Modify the unit of measurement based on the number of each unit, respectively. 
-      if (days==1){
-        document.getElementById("days-lab").innerHTML = "DAY"
-      } else {
-        document.getElementById("days-lab").innerHTML = "DAYS"
-      }
+      // if (days==1){
+      //   document.getElementById("days-lab").innerHTML = "DAY"
+      // } else {
+      //   document.getElementById("days-lab").innerHTML = "DAYS"
+      // }
     
-      if (hours==1){
-        document.getElementById("hours-lab").innerHTML = "HOUR"
-      } else {
-        document.getElementById("hours-lab").innerHTML = "HOURS"
-      }
+      // if (hours==1){
+      //   document.getElementById("hours-lab").innerHTML = "HOUR"
+      // } else {
+      //   document.getElementById("hours-lab").innerHTML = "HOURS"
+      // }
     
-      if (minutes==1){
-        document.getElementById("mins-lab").innerHTML = "MINUTE"
-      } else {
-        document.getElementById("mins-lab").innerHTML = "MINUTES"
-      }
+      // if (minutes==1){
+      //   document.getElementById("mins-lab").innerHTML = "MINUTE"
+      // } else {
+      //   document.getElementById("mins-lab").innerHTML = "MINUTES"
+      // }
     
-      if (seconds==1){
-        document.getElementById("seconds-lab").innerHTML = "SECOND"
-      } else {
-        document.getElementById("seconds-lab").innerHTML = "SECONDS"
-      }
+      // if (seconds==1){
+      //   document.getElementById("seconds-lab").innerHTML = "SECOND"
+      // } else {
+      //   document.getElementById("seconds-lab").innerHTML = "SECONDS"
+      // }
     
       // If the count down is finished, update the mission status and perform the fade animations on the countdown elements.
       if (distance < 0) {
           clearInterval(x);
-          $('.cd-num, .cd-lab').fadeOut(1300);
+          $('#cd-elements').fadeOut(1300);
           setTimeout(function(){ $('#mission-status-p').fadeIn(1300); }, 1500);
           
        }
