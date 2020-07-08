@@ -32,9 +32,9 @@
               <img src="{{ url_for('static', filename='img/logo-main.png') }}">
             </div>
             <div id="launch-info-container">
-              <p class="launch-info-item">{{ lsp }}</p>
-              <p class="launch-info-item">{{ name }}</p>
-              <p class="launch-info-item">{{ launch_time_date }}</p>
+              <p class="launch-info-item">Agency: {{ lsp }}</p>
+              <p class="launch-info-item">Mission: {{ name }}</p>
+              <p class="launch-info-item">Departure: {{ launch_time_date }}</p>
               <!-- If there is a link to a video stream, display it. Otherwise, show a message indicating that there is not a stream available. -->
               {% if ( stream_url != None) %}
                 <a id="stream-link" href={{ stream_url }} target="_blank">Stream Available</a>
