@@ -83,6 +83,8 @@ class Launch:
         data = launch_init()
         self.mission = data['launches'][0]['missions'][0]['name']
         self.mission_description = data['launches'][0]['missions'][0]['description']
+        self.launch_complex = data['launches'][0]['location']['pads'][0]['name']
+        self.launch_complex_info_url = data['launches'][0]['location']['pads'][0]['wikiURL']
         self.lsp = data['launches'][0]['lsp']['name']
         self.lsp_abbrev = data['launches'][0]['lsp']['abbrev']
         self.lsp_country = data['launches'][0]['lsp']['countryCode']
@@ -97,5 +99,5 @@ class Launch:
 
 
 l = Launch()
-print(l.lsp_country)
+print(l.launch_complex)
 

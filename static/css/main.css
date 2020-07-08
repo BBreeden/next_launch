@@ -26,6 +26,7 @@ footer {
   display: flex;
   justify-content: center;
   padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 html, body {
@@ -120,6 +121,7 @@ html {
 
   #mission{
     text-align: left;
+    padding: 10px;
   }
 
   #mission-status-p {
@@ -145,6 +147,10 @@ html {
     padding: 7px;
   }
 
+  .footer-text {
+    font-size: 14px;
+  }
+
   .launch-info-item, .info-link {
     font-size: 18px;
   }
@@ -158,6 +164,9 @@ html {
   @media screen and (max-width: 850px) {
     .footer-text {
       font-size: 12px;
+    }
+    #countdown-container {
+      flex-direction: column;
     }
 
   }

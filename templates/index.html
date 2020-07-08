@@ -74,6 +74,11 @@
           </div>
           {% if (mission_description != None) %}
             <div id="mission">
+              {% if (launch_complex_info_url != None) %}
+                <p class="misssion_description"><a class="info-link" href= {{ launch_complex_info_url }} target="_blank">{{ launch_complex }}</a></p><br />
+              {% else %}
+              <p class="misssion_description">{{ launch_complex }}</p>
+              {% endif %}
               <p class="misssion_description">{{mission_description}}</p>
             </div>
           {% endif %}
@@ -86,7 +91,7 @@
               <a href="https://twitter.com/NextLaunchInfo" target="_blank"><img id="tw-logo" src="{{ url_for('static', filename='img/tw.png') }}"></a> </br>
             </div>
             <div class="footer-item">
-              <p class="footer-text"><a href="https://twitter.com/BCBreeden" target="_blank">A Project By</br>Brian Breeden</a></p>
+              <p class="footer-text">A Project By</br><a href="https://twitter.com/BCBreeden" target="_blank">Brian Breeden</a></p>
             </div>
           </div>    
         </footer>
