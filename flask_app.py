@@ -17,5 +17,6 @@ def index():
                             info_url = l.info,
                             lsp = l.lsp,
                             lsp_abbrev = l.lsp_abbrev,
+                            lsp_info_url = l.lsp_info_url,
                             launch_time_date = l.launch_time_date)
 

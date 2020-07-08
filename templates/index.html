@@ -30,10 +30,19 @@
             </div>
             <div id="launch-info-container">
               <!-- If the length of the agency is too long, use the abbreviation instead. -->
-              {% if ( lsp|length>12 ) %}
-                <p class="launch-info-item">Agency: {{ lsp_abbrev }}</p>
+              {% if (lsp|length>15) %}
+                <!-- If there is a link to more information about the LSP, create a link for it. -->
+                {% if (lsp_info_url != None) %}
+                  <p class="launch-info-item">Agency: <a class="info-link" href={{ lsp_info_url }} target="_blank">{{ lsp_abbrev }}</a></p>
+                {% else %}
+                  <p class="launch-info-item">Agency: {{ lsp_abbrev }}</p>
+                {% endif %}
               {% else %}
-                <p class="launch-info-item">Agency: {{ lsp }}</p>
+                {% if (lsp_info_url != None) %}
+                  <p class="launch-info-item">Agency: <a class="info-link" href={{ lsp_info_url }} target="_blank">{{ lsp }}</a></p>
+                {% else %}
+                  <p class="launch-info-item">Agency: {{ lsp }}</p>
+                {% endif %}
               {% endif %}
               <p class="launch-info-item">Mission: {{ mission }}</p>
               <p class="launch-info-item">Departure: {{ launch_time_date }}</p>
