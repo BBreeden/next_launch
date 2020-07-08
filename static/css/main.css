@@ -140,7 +140,7 @@ html {
     padding: 7px;
   }
 
-  .launch-info-item, #stream-link {
+  .launch-info-item, .info-link {
     font-size: 18px;
   }
 

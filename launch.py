@@ -81,7 +81,8 @@ def get_img_url(api_string):
 class Launch:
     def __init__(self):
         data = launch_init()
-        self.name = data['launches'][0]['name']
+        self.mission = data['launches'][0]['missions'][0]['name']
+        self.mission_description = data['launches'][0]['missions'][0]['description']
         self.lsp = data['launches'][0]['lsp']['name']
         self.lsp_abbrev = data['launches'][0]['lsp']['abbrev']
         self.info = get_launch_info_url(data)
@@ -95,5 +96,5 @@ class Launch:
 
 
 l = Launch()
-print(l.rocket_info_url)
+print(l.mission_description)
 

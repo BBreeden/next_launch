@@ -29,14 +29,20 @@
               <img src="{{ url_for('static', filename='img/logo-main.png') }}">
             </div>
             <div id="launch-info-container">
-              <p class="launch-info-item">Agency: {{ lsp }}</p>
-              <p class="launch-info-item">Mission: {{ name }}</p>
+              <!-- If the length of the agency is too long, use the abbreviation instead. -->
+              {% if ( lsp|length>12 ) %}
+                <p class="launch-info-item">Agency: {{ lsp_abbrev }}</p>
+              {% else %}
+                <p class="launch-info-item">Agency: {{ lsp }}</p>
+              {% endif %}
+              <p class="launch-info-item">Mission: {{ mission }}</p>
               <p class="launch-info-item">Departure: {{ launch_time_date }}</p>
+
               <!-- If there is a link to a video stream, display it. Otherwise, show a message indicating that there is not a stream available. -->
               {% if ( stream_url != None) %}
-                <a id="stream-link" href={{ stream_url }} target="_blank">Stream Available</a>
+                <a class="info-link" href={{ stream_url }} target="_blank">Video Stream Available</a>
               {% else %}
-                <p id="no-stream-p">Stream Unavailable</p>
+                <p id="no-stream-p">Video Stream Unavailable</p>
               {% endif %} 
             </div>
           </div>
@@ -121,31 +127,6 @@
       document.getElementById("mins-num").innerHTML = minutes;
       document.getElementById("seconds-num").innerHTML = seconds;
     
-      //  Modify the unit of measurement based on the number of each unit, respectively. 
-      // if (days==1){
-      //   document.getElementById("days-lab").innerHTML = "DAY"
-      // } else {
-      //   document.getElementById("days-lab").innerHTML = "DAYS"
-      // }
-    
-      // if (hours==1){
-      //   document.getElementById("hours-lab").innerHTML = "HOUR"
-      // } else {
-      //   document.getElementById("hours-lab").innerHTML = "HOURS"
-      // }
-    
-      // if (minutes==1){
-      //   document.getElementById("mins-lab").innerHTML = "MINUTE"
-      // } else {
-      //   document.getElementById("mins-lab").innerHTML = "MINUTES"
-      // }
-    
-      // if (seconds==1){
-      //   document.getElementById("seconds-lab").innerHTML = "SECOND"
-      // } else {
-      //   document.getElementById("seconds-lab").innerHTML = "SECONDS"
-      // }
-    
       // If the count down is finished, update the mission status and perform the fade animations on the countdown elements.
       if (distance < 0) {
           clearInterval(x);
@@ -155,7 +136,6 @@
        }
       }, 1000);
     </script>
-    
 
 </body>
 </html>

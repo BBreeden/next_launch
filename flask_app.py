@@ -12,9 +12,10 @@ def index():
     l = launch.Launch()
     return render_template("index.html",
                             net = l.net,
-                            name = l.name,
+                            mission = l.mission,
                             stream_url = l.stream,
                             info_url = l.info,
                             lsp = l.lsp,
+                            lsp_abbrev = l.lsp_abbrev,
                             launch_time_date = l.launch_time_date)
 
