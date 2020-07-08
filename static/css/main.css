@@ -130,6 +130,7 @@ html {
     padding: 3px;
     width: 45px;
     display: inline-block;
+    font-weight: bolder;
   }
 
   .countdown-item {
