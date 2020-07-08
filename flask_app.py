@@ -17,6 +17,10 @@ def index():
                             info_url = l.info,
                             lsp = l.lsp,
                             lsp_abbrev = l.lsp_abbrev,
+                            lsp_country = l.lsp_country,
                             lsp_info_url = l.lsp_info_url,
-                            launch_time_date = l.launch_time_date)
+                            launch_time_date = l.launch_time_date,
+                            mission_description = l.mission_description,
+                            rocket_name = l.rocket_name,
+                            rocket_info_url = l.rocket_info_url)
 

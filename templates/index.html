@@ -45,7 +45,17 @@
                 {% endif %}
               {% endif %}
               <p class="launch-info-item">Mission: {{ mission }}</p>
+              <!-- If there is information relate to the launch vehicle, link to it. -->
+              {% if (rocket_info_url != None) %}
+                <p class="launch-info-item">Vehicle: <a class="info-link" href={{ rocket_info_url }} target="_blank">{{ rocket_name }}</a></p>
+              {% else %}
+                <p class="launch-info-item">Vehicle: {{ rocket_name }}</p>
+              {% endif %}
+
+
+
               <p class="launch-info-item">Departure: {{ launch_time_date }}</p>
+              <p class="launch-info-item">Country: {{ lsp_country }}</p>
 
               <!-- If there is a link to a video stream, display it. Otherwise, show a message indicating that there is not a stream available. -->
               {% if ( stream_url != None) %}
@@ -62,7 +72,11 @@
             </p>
             <p class="countdown-item" id="mission-status-p">Mission in </br>Progress</p>
           </div>
-
+          {% if (mission_description != None) %}
+            <div id="mission">
+              <p class="misssion_description">{{mission_description}}</p>
+            </div>
+          {% endif %}
         </div>
 
         <footer>

@@ -14,7 +14,7 @@ def launch_init():
     URL = 'https://launchlibrary.net/1.4/launch/next/1'
     r = requests.get(url = URL)
     return r.json()
-
+    
 '''
 Returns the launch information url. If there is no information, None is returned.
 
@@ -85,6 +85,7 @@ class Launch:
         self.mission_description = data['launches'][0]['missions'][0]['description']
         self.lsp = data['launches'][0]['lsp']['name']
         self.lsp_abbrev = data['launches'][0]['lsp']['abbrev']
+        self.lsp_country = data['launches'][0]['lsp']['countryCode']
         self.info = get_launch_info_url(data)
         self.rocket_name = data['launches'][0]['rocket']['name']
         self.rocket_info_url = data['launches'][0]['rocket']['wikiURL']
@@ -96,5 +97,5 @@ class Launch:
 
 
 l = Launch()
-print(l.mission_description)
+print(l.lsp_country)
 
