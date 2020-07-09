@@ -168,12 +168,13 @@ html {
     #countdown-container {
       flex-direction: column;
     }
+    html, body {
+      height: auto;
+      width: 100%;
+    }
 
   }
 
   /* Laptops  */
   @media screen and (max-height: 750px) {
-    #container-main {
-      /* justify-content: flex-start; */
-    }
   }
