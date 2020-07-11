@@ -177,4 +177,8 @@ html {
 
   /* Laptops  */
   @media screen and (max-height: 750px) {
+    html, body {
+      height: auto;
+      width: 100%;
+    }
   }
