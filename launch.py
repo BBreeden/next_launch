@@ -99,5 +99,5 @@ class Launch:
 
 
 l = Launch()
-print(l.launch_complex)
+print(len(l.launch_complex_info_url))
 

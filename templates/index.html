@@ -74,10 +74,10 @@
           </div>
           {% if (mission_description != None) %}
             <div id="mission">
-              {% if (launch_complex_info_url != None) %}
+              {% if ((launch_complex_info_url != None) and (launch_complex_info_url|length>5)) %}
                 <p class="misssion_description"><a class="info-link" href= {{ launch_complex_info_url }} target="_blank">{{ launch_complex }}</a></p><br />
               {% else %}
-              <p class="misssion_description">{{ launch_complex }}</p>
+                <p class="launch-info-item">{{ launch_complex }}</p><br />
               {% endif %}
               <p class="misssion_description">{{mission_description}}</p>
             </div>
