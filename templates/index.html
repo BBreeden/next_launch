@@ -28,6 +28,7 @@
             <div id="logo-container">
               <img src="{{ url_for('static', filename='img/logo.png') }}">
             </div>
+            
             <div id="launch-info-container">
               <!-- If the length of the agency is too long, use the abbreviation instead. -->
               {% if (lsp|length>15) %}
@@ -51,34 +52,30 @@
               {% else %}
                 <p class="launch-info-item">Vehicle: {{ rocket_name }}</p>
               {% endif %}
-
-
-
               <p class="launch-info-item">Departure: {{ launch_time_date }}</p>
               <p class="launch-info-item">Country: {{ lsp_country }}</p>
-
+              <!-- If there is a launch complex information link, link to it. -->
+              {% if ((launch_complex_info_url != None) and (launch_complex_info_url|length>5)) %}
+                <p class="launch-info-item">Launch Complex: <a class="info-link" href= {{ launch_complex_info_url }} target="_blank">{{ launch_complex }}</a></p><br />
+              {% else %}
+                <p class="launch-info-item">Launch Complex: {{ launch_complex }}</p><br />
+              {% endif %}
               <!-- If there is a link to a video stream, display it. Otherwise, show a message indicating that there is not a stream available. -->
               {% if ( stream_url != None) %}
-                <a class="info-link" href={{ stream_url }} target="_blank">Video Stream Available</a>
+                <p class="launch-info-item"><a class="info-link" href={{ stream_url }} target="_blank">Video Stream Available</a></p>
               {% else %}
                 <p id="no-stream-p">Video Stream Unavailable</p>
               {% endif %} 
             </div>
           </div>
-
           <div id="countdown">
             <p class="countdown-item" id="cd-elements">
               T - <span class="cd-num" id="days-num">00</span>:<span class="cd-num" id="hours-num">00</span>:<span class="cd-num" id="mins-num">00</span>:<span class="cd-num" id="seconds-num">00</span>
             </p>
             <p class="countdown-item" id="mission-status-p">Mission in </br>Progress</p>
           </div>
-          {% if (mission_description != None) %}
+          {% if (mission_description|length>80) %}
             <div id="mission">
-              {% if ((launch_complex_info_url != None) and (launch_complex_info_url|length>5)) %}
-                <p class="misssion_description"><a class="info-link" href= {{ launch_complex_info_url }} target="_blank">{{ launch_complex }}</a></p><br />
-              {% else %}
-                <p class="launch-info-item">{{ launch_complex }}</p><br />
-              {% endif %}
               <p class="misssion_description">{{mission_description}}</p>
             </div>
           {% endif %}
