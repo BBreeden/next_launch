@@ -30,6 +30,7 @@
             </div>
             
             <div id="launch-info-container">
+              <p class="launch-info-item">{{ mission }}</p> <br />
               <!-- If the length of the agency is too long, use the abbreviation instead. -->
               {% if (lsp|length>15) %}
                 <!-- If there is a link to more information about the LSP, create a link for it. -->
@@ -45,7 +46,6 @@
                   <p class="launch-info-item">Agency: {{ lsp }}</p>
                 {% endif %}
               {% endif %}
-              <p class="launch-info-item">Mission: {{ mission }}</p>
               <!-- If there is information relate to the launch vehicle, link to it. -->
               {% if (rocket_info_url != None) %}
                 <p class="launch-info-item">Vehicle: <a class="info-link" href={{ rocket_info_url }} target="_blank">{{ rocket_name }}</a></p>
@@ -56,10 +56,11 @@
               <p class="launch-info-item">Country: {{ lsp_country }}</p>
               <!-- If there is a launch complex information link, link to it. -->
               {% if ((launch_complex_info_url != None) and (launch_complex_info_url|length>5)) %}
-                <p class="launch-info-item">Launch Complex: <a class="info-link" href= {{ launch_complex_info_url }} target="_blank">{{ launch_complex }}</a></p><br />
+                <p class="launch-info-item">Launch Complex: <a class="info-link" href= {{ launch_complex_info_url }} target="_blank">{{ launch_complex }}</a></p>
               {% else %}
-                <p class="launch-info-item">Launch Complex: {{ launch_complex }}</p><br />
+                <p class="launch-info-item">Launch Complex: {{ launch_complex }}</p>
               {% endif %}
+              <br />
               <!-- If there is a link to a video stream, display it. Otherwise, show a message indicating that there is not a stream available. -->
               {% if ( stream_url != None) %}
                 <p class="launch-info-item"><a class="info-link" href={{ stream_url }} target="_blank">Video Stream Available</a></p>
