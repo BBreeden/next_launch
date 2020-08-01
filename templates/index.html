@@ -35,20 +35,20 @@
               {% if (lsp|length>15) %}
                 <!-- If there is a link to more information about the LSP, create a link for it. -->
                 {% if (lsp_info_url != None) %}
-                  <p class="launch-info-item">Agency: <a class="info-link" href={{ lsp_info_url }} target="_blank">{{ lsp_abbrev }}</a></p>
+                  <p class="launch-info-item">Agency: <a class="info-link" href={{ lsp_info_url }} target="_blank" rel="noopener">{{ lsp_abbrev }}</a></p>
                 {% else %}
                   <p class="launch-info-item">Agency: {{ lsp_abbrev }}</p>
                 {% endif %}
               {% else %}
                 {% if (lsp_info_url != None) %}
-                  <p class="launch-info-item">Agency: <a class="info-link" href={{ lsp_info_url }} target="_blank">{{ lsp }}</a></p>
+                  <p class="launch-info-item">Agency: <a class="info-link" href={{ lsp_info_url }} target="_blank" rel="noopener">{{ lsp }}</a></p>
                 {% else %}
                   <p class="launch-info-item">Agency: {{ lsp }}</p>
                 {% endif %}
               {% endif %}
               <!-- If there is information relate to the launch vehicle, link to it. -->
-              {% if (rocket_info_url != None) %}
-                <p class="launch-info-item">Vehicle: <a class="info-link" href={{ rocket_info_url }} target="_blank">{{ rocket_name }}</a></p>
+              {% if ((rocket_info_url != None) and (rocket_info_url|length>5)) %}
+                <p class="launch-info-item">Vehicle: <a class="info-link" href={{ rocket_info_url }} target="_blank" rel="noopener">{{ rocket_name }}</a></p>
               {% else %}
                 <p class="launch-info-item">Vehicle: {{ rocket_name }}</p>
               {% endif %}
@@ -56,14 +56,14 @@
               <p class="launch-info-item">Country: {{ lsp_country }}</p>
               <!-- If there is a launch complex information link, link to it. -->
               {% if ((launch_complex_info_url != None) and (launch_complex_info_url|length>5)) %}
-                <p class="launch-info-item">Launch Complex: <a class="info-link" href= {{ launch_complex_info_url }} target="_blank">{{ launch_complex }}</a></p>
+                <p class="launch-info-item">Launch Complex: <a class="info-link" href= {{ launch_complex_info_url }} target="_blank" rel="noopener">{{ launch_complex }}</a></p>
               {% else %}
                 <p class="launch-info-item">Launch Complex: {{ launch_complex }}</p>
               {% endif %}
               <br />
               <!-- If there is a link to a video stream, display it. Otherwise, show a message indicating that there is not a stream available. -->
               {% if ( stream_url != None) %}
-                <p class="launch-info-item"><a class="info-link" href={{ stream_url }} target="_blank">Video Stream Available</a></p>
+                <p class="launch-info-item"><a class="info-link" href={{ stream_url }} target="_blank" rel="noopener">Video Stream Available</a></p>
               {% else %}
                 <p id="no-stream-p">Video Stream Unavailable</p>
               {% endif %} 
@@ -85,10 +85,10 @@
         <footer>
           <div id="footer-container">
             <div class="footer-item">
-              <a href="https://twitter.com/NextLaunchInfo" target="_blank"><img id="tw-logo" alt="Twitter logo that links to the Next Launch Twitter account." src="{{ url_for('static', filename='img/tw.png') }}"></a> </br>
+              <a href="https://twitter.com/NextLaunchInfo" target="_blank" rel="noopener"><img id="tw-logo" alt="Twitter logo that links to the Next Launch Twitter account." src="{{ url_for('static', filename='img/tw.png') }}"></a> </br>
             </div>
             <div class="footer-item">
-              <p class="footer-text"><a href="https://twitter.com/BCBreeden" target="_blank">A Project By</br>Brian Breeden</a></p>
+              <p class="footer-text"><a href="https://twitter.com/BCBreeden" target="_blank" rel="noopener">A Project By</br>Brian Breeden</a></p>
             </div>
           </div>    
         </footer>

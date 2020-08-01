@@ -98,6 +98,6 @@ class Launch:
         self.lsp_info_url = data['launches'][0]['lsp']['wikiURL']
 
 
-l = Launch()
-print(len(l.launch_complex_info_url))
+# l = Launch()
+# print(len(l.rocket_info_url))
 
