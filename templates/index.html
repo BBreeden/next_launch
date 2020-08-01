@@ -32,6 +32,7 @@
             
             <div id="launch-info-container">
               <p class="launch-info-item mission-title">{{ mission }}</p> <br />
+              
               <!-- If the length of the agency is too long, use the abbreviation instead. -->
               {% if (lsp|length>15) %}
                 <!-- If there is a link to more information about the LSP, create a link for it. -->
@@ -47,6 +48,7 @@
                   <p class="launch-info-item">Agency: {{ lsp }}</p>
                 {% endif %}
               {% endif %}
+
               <!-- If there is information relate to the launch vehicle, link to it. -->
               {% if ((rocket_info_url != None) and (rocket_info_url|length>5)) %}
                 <p class="launch-info-item">Vehicle: <a class="info-link" href={{ rocket_info_url }} target="_blank" rel="noopener">{{ rocket_name }}</a></p>
@@ -62,6 +64,7 @@
                 <p class="launch-info-item">Launch Complex: {{ launch_complex }}</p>
               {% endif %}
               <br />
+
               <!-- If there is a link to a video stream, display it. Otherwise, show a message indicating that there is not a stream available. -->
               {% if ( stream_url != None) %}
                 <p class="launch-info-item"><a class="info-link" href={{ stream_url }} target="_blank" rel="noopener">Video Stream Available</a></p>

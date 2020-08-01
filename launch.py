@@ -97,7 +97,7 @@ class Launch:
         self.launch_time_date = data['launches'][0]['net']
         self.lsp_info_url = data['launches'][0]['lsp']['wikiURL']
 
-
+# Sandbox
 # l = Launch()
 # print(len(l.rocket_info_url))
 
