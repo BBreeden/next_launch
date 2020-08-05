@@ -1,5 +1,6 @@
 import requests
 import ciso8601
+import datetime
 
 '''
 Makes the api call to launch library.
@@ -11,9 +12,15 @@ return:
     api call return as a json object
 '''
 def launch_init():
-    URL = 'https://launchlibrary.net/1.4/launch/next/1'
+    URL = 'https://ll.thespacedevs.com/2.0.0/launch/upcoming/'
     r = requests.get(url = URL)
-    return r.json()
+    data = r.json()
+    results = data['results']
+    for result in results:
+        net = datetime.datetime.strptime(result['net'], '%Y-%m-%dT%H:%M:%SZ')
+        if (net > datetime.datetime.utcnow()):
+            return result
+            
     
 '''
 Returns the launch information url. If there is no information, None is returned.
@@ -81,23 +88,28 @@ def get_img_url(api_string):
 class Launch:
     def __init__(self):
         data = launch_init()
-        self.mission = data['launches'][0]['missions'][0]['name']
-        self.mission_description = data['launches'][0]['missions'][0]['description']
-        self.launch_complex = data['launches'][0]['location']['pads'][0]['name']
-        self.launch_complex_info_url = data['launches'][0]['location']['pads'][0]['wikiURL']
-        self.lsp = data['launches'][0]['lsp']['name']
-        self.lsp_abbrev = data['launches'][0]['lsp']['abbrev']
-        self.lsp_country = data['launches'][0]['lsp']['countryCode']
-        self.info = get_launch_info_url(data)
-        self.rocket_name = data['launches'][0]['rocket']['name']
-        self.rocket_info_url = data['launches'][0]['rocket']['wikiURL']
-        self.stream = get_stream_url(data)
-        self.net = get_timedate_stamp(data['launches'][0]['isonet']) #UTC
-        self.img_url = get_img_url(data['launches'][0]['rocket']['imageURL'])
-        self.launch_time_date = data['launches'][0]['net']
-        self.lsp_info_url = data['launches'][0]['lsp']['wikiURL']
+        self.mission = data['name']
+        try:
+            self.mission_description = data['mission']['description']
+        except TypeError:
+            self.mission_description = None
+        self.launch_complex = data['pad']['location']['name']
+        self.launch_complex_info_url = data['pad']['wiki_url']
+        self.lsp = data['launch_service_provider']['name']
+        self.lsp_country = data['pad']['location']['country_code']
+        self.rocket_name = data['rocket']['configuration']['name']
+        self.net = get_timedate_stamp(data['net']) #UTC
+        self.img_url = get_img_url(data['image'])
+        self.launch_time_date = data['net']
+
+
+        # TODO
+        
+        # self.stream = get_stream_url(data)
+        # self.lsp_info_url = data['launches'][0]['lsp']['wikiURL']
 
 # Sandbox
 # l = Launch()
 # print(len(l.rocket_info_url))
-
+data = launch_init()
+print()

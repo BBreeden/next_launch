@@ -32,29 +32,16 @@
             
             <div id="launch-info-container">
               <p class="launch-info-item mission-title">{{ mission }}</p> <br />
-              
-              <!-- If the length of the agency is too long, use the abbreviation instead. -->
-              {% if (lsp|length>15) %}
-                <!-- If there is a link to more information about the LSP, create a link for it. -->
-                {% if (lsp_info_url != None) %}
-                  <p class="launch-info-item">Agency: <a class="info-link" href={{ lsp_info_url }} target="_blank" rel="noopener">{{ lsp_abbrev }}</a></p>
-                {% else %}
-                  <p class="launch-info-item">Agency: {{ lsp_abbrev }}</p>
-                {% endif %}
-              {% else %}
-                {% if (lsp_info_url != None) %}
-                  <p class="launch-info-item">Agency: <a class="info-link" href={{ lsp_info_url }} target="_blank" rel="noopener">{{ lsp }}</a></p>
-                {% else %}
-                  <p class="launch-info-item">Agency: {{ lsp }}</p>
-                {% endif %}
-              {% endif %}
 
-              <!-- If there is information relate to the launch vehicle, link to it. -->
-              {% if ((rocket_info_url != None) and (rocket_info_url|length>5)) %}
-                <p class="launch-info-item">Vehicle: <a class="info-link" href={{ rocket_info_url }} target="_blank" rel="noopener">{{ rocket_name }}</a></p>
-              {% else %}
-                <p class="launch-info-item">Vehicle: {{ rocket_name }}</p>
-              {% endif %}
+              <!-- TODO: FIX THIS -->
+              <!-- If there is a LSP url, link it. -->
+              <!-- {% if (lsp_info_url != None) %}
+                <p class="launch-info-item">Agency: <a class="info-link" href={{ lsp_info_url }} target="_blank" rel="noopener">{{ lsp }}</a></p>
+              {% else %} -->
+                <p class="launch-info-item">Agency: {{ lsp }}</p>
+              <!-- {% endif %} -->
+
+              <p class="launch-info-item">Vehicle: {{ rocket_name }}</p>
               <p class="launch-info-item">Departure: {{ launch_time_date }}</p>
               <p class="launch-info-item">Country: {{ lsp_country }}</p>
               <!-- If there is a launch complex information link, link to it. -->
@@ -65,12 +52,13 @@
               {% endif %}
               <br />
 
+              <!-- TODO: FIX THIS -->
               <!-- If there is a link to a video stream, display it. Otherwise, show a message indicating that there is not a stream available. -->
-              {% if ( stream_url != None) %}
+              <!-- {% if ( stream_url != None) %}
                 <p class="launch-info-item"><a class="info-link" href={{ stream_url }} target="_blank" rel="noopener">Video Stream Available</a></p>
-              {% else %}
+              {% else %} -->
                 <p id="no-stream-p">Video Stream Unavailable</p>
-              {% endif %} 
+              <!-- {% endif %}  -->
             </div>
           </div>
           <div id="countdown">
@@ -79,7 +67,7 @@
             </p>
             <p class="countdown-item" id="mission-status-p">Mission in </br>Progress</p>
           </div>
-          {% if (mission_description|length>80) %}
+          {% if (mission_description != None) %}
             <div id="mission">
               <p class="misssion_description">{{mission_description}}</p>
             </div>
