@@ -66,6 +66,18 @@ def get_timedate_stamp(date_string):
     dt = ciso8601.parse_datetime(date_string)
     dt_st = ('%s, %s, %s, %s, %s, %s'% (dt.year, (dt.month-1), dt.day, dt.hour, dt.minute, dt.second))
     return dt_st
+'''
+Takes a date string from the API and returns a re-formatted string that is easier to read for the UI.
+
+args:
+    date_string - the time and date information in the form of a string
+
+return:
+    dt_string - the reformatted date string.
+'''
+def datetime_to_string(date_string):
+    dt = ciso8601.parse_datetime(date_string)
+    return dt.strftime("%B %d, %Y | %H:%M:%S UTC")
 
 '''
 Takes the img url from the api as an argument and returns our own default image if the placeholder from the api is used. Otherwise, use the passed url.
@@ -101,16 +113,7 @@ class Launch:
         self.rocket_info_url = data['rocket']['configuration']['wiki_url']
         self.net = get_timedate_stamp(data['net']) #UTC
         self.img_url = get_img_url(data['image'])
-        self.launch_time_date = data['net']
+        self.launch_time_date = datetime_to_string(data['net'])
         self.lsp_abbrev = data['launch_service_provider']['abbrev']
         self.lsp_info_url = data['launch_service_provider']['wiki_url']
         self.stream = get_stream_url(data)
-        
-        
-        
-
-# Sandbox
-# l = Launch()
-# print(len(l.rocket_info_url))
-data = launch_init()
-print(data['rocket']['configuration']['wiki_url'])
