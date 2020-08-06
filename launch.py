@@ -12,7 +12,7 @@ return:
     api call return as a json object
 '''
 def launch_init():
-    URL = 'https://ll.thespacedevs.com/2.0.0/launch/upcoming/'
+    URL = 'https://ll.thespacedevs.com/2.0.0/launch/upcoming/?mode=detailed'
     r = requests.get(url = URL)
     data = r.json()
     results = data['results']
