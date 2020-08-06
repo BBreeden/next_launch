@@ -49,7 +49,7 @@ return:
     data_array[0] - The first entry in the array is the primary data source for this metric
 '''
 def get_stream_url(data):
-    data_array = data['launches'][0]['vidURLs']
+    data_array = data['vidURLs']
     if len(data_array) == 0:
         return None
     return data_array[0]
@@ -98,18 +98,19 @@ class Launch:
         self.lsp = data['launch_service_provider']['name']
         self.lsp_country = data['pad']['location']['country_code']
         self.rocket_name = data['rocket']['configuration']['name']
+        self.rocket_info_url = data['rocket']['configuration']['wiki_url']
         self.net = get_timedate_stamp(data['net']) #UTC
         self.img_url = get_img_url(data['image'])
         self.launch_time_date = data['net']
-
-
-        # TODO
+        self.lsp_abbrev = data['launch_service_provider']['abbrev']
+        self.lsp_info_url = data['launch_service_provider']['wiki_url']
+        self.stream = get_stream_url(data)
         
-        # self.stream = get_stream_url(data)
-        # self.lsp_info_url = data['launches'][0]['lsp']['wikiURL']
+        
+        
 
 # Sandbox
 # l = Launch()
 # print(len(l.rocket_info_url))
 data = launch_init()
-print()
+print(data['rocket']['configuration']['wiki_url'])
