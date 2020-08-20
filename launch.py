@@ -54,13 +54,13 @@ def get_stream_url(data):
         return None
     return data_array[0]
 '''
-Returns a datetime object given a string. The string in the api call matches what is needed for this conversion to work properly, out of the box.
+Returns a formatted string that is used by the countdown script.
 
 args:
     date_string - the time and date information in the form of a string
 
 return:
-    date - a datetime object of the previously passed string
+    Re-formatted string of the date_string.
 '''
 def get_timedate_stamp(date_string):
     dt = ciso8601.parse_datetime(date_string)
@@ -73,7 +73,7 @@ args:
     date_string - the time and date information in the form of a string
 
 return:
-    dt_string - the reformatted date string.
+    A reformatted date string.
 '''
 def datetime_to_string(date_string):
     dt = ciso8601.parse_datetime(date_string)
