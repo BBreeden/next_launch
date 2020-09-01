@@ -52,7 +52,7 @@ def get_stream_url(data):
     data_array = data['vidURLs']
     if len(data_array) == 0:
         return None
-    return data_array[0]
+    return data_array[0]['url']
 '''
 Returns a formatted string that is used by the countdown script.
 
