@@ -89,8 +89,8 @@ return:
     string - custom placeholder or the appropriate img url
 '''
 def get_img_url(api_string):
-    if ('placeholder' in api_string):
-        return 'https://i.imgur.com/YT5cdel.png'
+    if api_string is None:
+        return 'https://i.imgur.com/DG3617t.png'
     api_string = api_string.replace('\\', '')
     return api_string
 
