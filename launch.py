@@ -117,3 +117,6 @@ class Launch:
         self.lsp_abbrev = data['launch_service_provider']['abbrev']
         self.lsp_info_url = data['launch_service_provider']['wiki_url']
         self.stream = get_stream_url(data)
+
+l = Launch()
+print(l.net)
