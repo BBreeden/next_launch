@@ -101,13 +101,20 @@ class Launch:
     def __init__(self):
         data = launch_init()
         self.mission = data['name']
+
+        # Attempt tp fetch a mission description
         try:
             self.mission_description = data['mission']['description']
         except TypeError:
             self.mission_description = None
-        self.launch_complex = data['pad']['location']['name']
-        self.launch_complex_info_url = data['pad']['wiki_url']
-        self.lsp = data['launch_service_provider']['name']
+            
+        # Attempt to fetch a LSP.
+        try:
+            self.lsp = data['launch_service_provider']['name']
+        except TypeError:
+            self.lsp = "LSP Unknown"
+            print('LSP Unknwon for:', self.mission)
+        
         self.lsp_country = data['pad']['location']['country_code']
         self.rocket_name = data['rocket']['configuration']['name']
         self.rocket_info_url = data['rocket']['configuration']['wiki_url']
@@ -116,4 +123,6 @@ class Launch:
         self.launch_time_date = datetime_to_string(data['net'])
         self.lsp_abbrev = data['launch_service_provider']['abbrev']
         self.lsp_info_url = data['launch_service_provider']['wiki_url']
+        self.launch_complex = data['pad']['location']['name']
+        self.launch_complex_info_url = data['pad']['wiki_url']
         self.stream = get_stream_url(data)
