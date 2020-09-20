@@ -113,7 +113,14 @@ class Launch:
             self.lsp = data['launch_service_provider']['name']
         except TypeError:
             self.lsp = "LSP Unknown"
-            print('LSP Unknwon for:', self.mission)
+            print('LSP unknown for:', self.mission)
+
+        # Attempt to fetch a LSP Abbrev.
+        try:
+            self.lsp_abbrev = data['launch_service_provider']['abbrev']
+        except TypeError:
+            self.lsp_abbrev = "UKN"
+            print('LSP abbrev unknown for:', self.mission)
         
         self.lsp_country = data['pad']['location']['country_code']
         self.rocket_name = data['rocket']['configuration']['name']
@@ -121,7 +128,6 @@ class Launch:
         self.net = get_timedate_stamp(data['net']) #UTC
         self.img_url = get_img_url(data['image'])
         self.launch_time_date = datetime_to_string(data['net'])
-        self.lsp_abbrev = data['launch_service_provider']['abbrev']
         self.lsp_info_url = data['launch_service_provider']['wiki_url']
         self.launch_complex = data['pad']['location']['name']
         self.launch_complex_info_url = data['pad']['wiki_url']
