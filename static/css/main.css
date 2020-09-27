@@ -9,17 +9,28 @@ Media Queries
 In alphabetical order.
 */
 
+:root {
+  --primary-font-color: #209500;
+  --link-color: #005b95;
+  --link-hover: grey;
+}
+
+* {
+  font-family: 'Share Tech Mono', monospace;
+}
+
 a {
-  color: #d8b17a;
+  color: var(--link-color);
   text-decoration: none;
 }
 
 a:hover {
-  color: grey;
+  color: var(--link-hover);
 }
 
 body {
   margin: 0;
+  color: var(--primary-font-color);
 }
 
 footer {
@@ -34,11 +45,12 @@ html, body {
 }
 
 html { 
-    background: url(/static/img/f9bg-jpg.jpg) no-repeat center center fixed;
+    /* background: url(/static/img/f9bg-jpg.jpg) no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
-    background-size: cover;
+    background-size: cover; */
+    background-color: black;
   }
 
   header {
@@ -46,6 +58,7 @@ html {
     flex-direction: row;
     align-self: center;
     padding-top: 40px;
+    width: 100%;
   }
   
   h1 {
@@ -53,34 +66,36 @@ html {
   }
 
   h1 {
-    font-family: 'Playfair Display', serif;
+    /* font-family: 'Playfair Display', serif; */
     font-weight: normal;
-    color: white;
+    /* color: var(--primary-font-color); */
   }
 
   p, h1 {
     margin: 0;
-    color: white;
+    /* color: var(--primary-font-color); */
   }
 
-  p {
+  /* p {
     font-family: 'Fauna One', serif;
-  }
+  } */
 
   #container {
     display: flex;
     justify-content: center;
     height: 100%;
+    align-items: center;
   }
 
   #container-main {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     text-align: center;
     align-items: center;
-    height: 100%;
     width: 625px;
+    border-style: solid;
+    border-width: 5px;
+    border-color: var(--primary-font-color);
   }
 
   #countdown {
@@ -162,8 +177,8 @@ html {
   }
 
   .mission-title {
-    font-family: 'Playfair Display', serif;
-    color: white;
+    /* font-family: 'Playfair Display', serif; */
+    /* color: var(--primary-font-color); */
     font-size: 20px;
   }
 
