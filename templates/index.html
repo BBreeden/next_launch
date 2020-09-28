@@ -14,7 +14,7 @@
   <!-- <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Fauna+One&display=swap" rel="stylesheet"> -->
 
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet"> 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -23,14 +23,22 @@
     <div id="container">
       <div id="container-main">
         <header>
-          <h1 id="header-text">NEXT LAUNCH</h1>
+          <h1 id="header-text">NextLaunch.info</h1>
         </header>
-    
         <div id="launch-items">
+          <div id="logo-container">
+            <img alt="The Next Launch logo. A rocket orbiting with circles behind it." src="{{ url_for('static', filename='img/logoNew.png') }}">
+          </div>
+          <div id="countdown">
+            <p class="countdown-item" id="cd-elements">
+              T - <span class="cd-num" id="days-num">00</span>:<span class="cd-num" id="hours-num">00</span>:<span class="cd-num" id="mins-num">00</span>:<span class="cd-num" id="seconds-num">00</span>
+            </p>
+            <p class="countdown-item" id="mission-status-p">Mission in </br>Progress</p>
+          </div>
+
+
+
           <div id="countdown-container">
-            <div id="logo-container">
-              <img alt="The Next Launch logo. A vector of the space shuttle with a flourish to represent the fire from launch." src="{{ url_for('static', filename='img/logo.png') }}">
-            </div>
             
             <div id="launch-info-container">
               <p class="launch-info-item mission-title">{{ mission }}</p> <br />
@@ -74,12 +82,6 @@
                 <p id="no-stream-p">Video Stream Unavailable</p>
               {% endif %} 
             </div>
-          </div>
-          <div id="countdown">
-            <p class="countdown-item" id="cd-elements">
-              T - <span class="cd-num" id="days-num">00</span>:<span class="cd-num" id="hours-num">00</span>:<span class="cd-num" id="mins-num">00</span>:<span class="cd-num" id="seconds-num">00</span>
-            </p>
-            <p class="countdown-item" id="mission-status-p">Mission in </br>Progress</p>
           </div>
           {% if (mission_description != None) %}
             <div id="mission">
