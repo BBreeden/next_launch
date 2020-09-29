@@ -10,8 +10,6 @@ In alphabetical order.
 */
 
 :root {
-  /* --primary-font-color: #81a9fd;
-  --link-color: white; */
   --primary-font-color: white;
   --link-color: #81a9fd;
   --link-hover: #c792ea;
@@ -48,11 +46,6 @@ html, body {
 }
 
 html { 
-    /* background: url(/static/img/f9bg-jpg.jpg) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover; */
     background-color: var(--background-color);
   }
 
@@ -70,19 +63,12 @@ html {
   }
 
   h1 {
-    /* font-family: 'Playfair Display', serif; */
     font-weight: normal;
-    /* color: var(--primary-font-color); */
   }
 
   p, h1 {
     margin: 0;
-    /* color: var(--primary-font-color); */
   }
-
-  /* p {
-    font-family: 'Fauna One', serif;
-  } */
 
   #container {
     display: flex;
@@ -176,13 +162,11 @@ html {
   }
 
   .mission-title {
-    /* font-family: 'Playfair Display', serif; */
-    /* color: var(--primary-font-color); */
     font-size: 20px;
   }
 
   /* Mobile  */
-  @media screen and (max-width: 625px) {
+  /* @media screen and (max-width: 625px) {
     .footer-text {
       font-size: 12px;
     }
@@ -194,12 +178,12 @@ html {
       width: 100%;
     }
 
-  }
+  } */
 
   /* Laptops  */
-  @media screen and (max-height: 750px) {
+  /* @media screen and (max-height: 750px) {
     html, body {
       height: auto;
       width: 100%;
     }
-  }
+  } */
