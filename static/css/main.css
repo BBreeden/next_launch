@@ -10,9 +10,12 @@ In alphabetical order.
 */
 
 :root {
-  --primary-font-color: #209500;
-  --link-color: #156ca4;
-  --link-hover: white;
+  /* --primary-font-color: #81a9fd;
+  --link-color: white; */
+  --primary-font-color: white;
+  --link-color: #81a9fd;
+  --link-hover: #c792ea;
+  --background-color: #011627;
 }
 
 * {
@@ -50,13 +53,14 @@ html {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover; */
-    background-color: black;
+    background-color: var(--background-color);
   }
 
   header {
     display: flex;
     flex-direction: row;
     align-self: center;
+    justify-content:center;
     padding-top: 40px;
     width: 100%;
   }
@@ -115,9 +119,6 @@ html {
     width: auto;
     display: flex;
     flex-direction: column;
-    border-style: solid;
-    border-width: 5px;
-    border-color: var(--primary-font-color);
     padding: 20px;
   }
 
@@ -131,7 +132,7 @@ html {
   }
 
   #logo-container {
-    padding: 10px;
+    padding: 35px;
   }
 
   #mission{
