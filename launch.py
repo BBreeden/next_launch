@@ -98,7 +98,7 @@ return:
 '''
 def get_img_url(api_string):
     if api_string is None:
-        return 'https://i.imgur.com/DG3617t.png'
+        return 'https://i.imgur.com/meYYfvw.jpeg'
     api_string = api_string.replace('\\', '')
     return api_string
 
