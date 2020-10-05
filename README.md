@@ -1,9 +1,7 @@
 # next_launch
 
-NextLaunch is a web application currently active at www.nextlaunch.info and is hosted with www.pythonanywhere.com.
+NextLaunch is a web app that tracks the next, upcoming rocket launch across several agencies from all over the world. 
 
-NextLaunch is designed to answer one question: 'When is the next rocket launch?' This question is answered by leveraging the Launch Library API (https://launchlibrary.net/).
+This project is only possible through the generous work done by The Space Devs: https://thespacedevs.com/.
 
 Technologies: Flask (Python), HTML, CSS, JS
-
-Twitter: @NextLaunchInfo @BCBreeden
