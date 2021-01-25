@@ -1,15 +1,21 @@
 from flask import Flask, render_template
+from flask_caching import Cache
 import launch
 
 app = Flask(__name__)
+cache = Cache()
+
 app.config["DEBUG"] = True
+app.config["CACHE_TYPE"] = 'simple'
+
+cache.init_app(app)
 
 '''
 Renders the index template and passes in the launch information.
 '''
 @app.route('/')
 def index():
-    l = launch.Launch()
+    l = launch_init()
     return render_template("index.html",
                             net = l.net,
                             mission = l.mission,
@@ -25,3 +31,9 @@ def index():
                             rocket_name = l.rocket_name,
                             rocket_info_url = l.rocket_info_url)
 
+
+@cache.cached(timeout=260, key_prefix='launch_init')
+def launch_init():
+    '''Caches the launch data that is updated every ~5 minutes.'''
+    data = launch.Launch()
+    return data
